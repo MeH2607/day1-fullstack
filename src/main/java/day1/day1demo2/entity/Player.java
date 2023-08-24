@@ -1,23 +1,22 @@
 package day1.day1demo2.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+//Laver automatisk getters og setters
 @Getter
 @Setter
-@NoArgsConstructor
-//------------------------
+@NoArgsConstructor  //Laver automatisk en null constructor
+//------------------------ da annoteringerne kommer fra to pakker og har to funktioner skal de deles op
 @Entity
+@Table(name="spiller")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+    @Column(unique = true, length = 70, nullable = false)
     private String name;
     String country;
     String position;

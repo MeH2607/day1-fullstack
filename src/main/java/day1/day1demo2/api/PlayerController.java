@@ -15,7 +15,7 @@ public class PlayerController {
     public PlayerController(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
     }
-    @GetMapping
+    @GetMapping //Husk GetMapping altid sender data som json
     List<Player> getPlayers() {
         return  playerRepository.findAll();
     }
